@@ -126,11 +126,11 @@
 
 ### 常用流程化工具/框架（建议使用）
 
-    [nf-core/rnaseq](https://github.com/nf-core/RNAseq)（基于 Nextflow，社区维护的标准RNA-seq流程）
+[nf-core/rnaseq](https://github.com/nf-core/RNAseq) （基于 Nextflow，社区维护的标准RNA-seq流程）
 
-    SnakeMake 或 Nextflow：可自定义的流程化执行平台
+SnakeMake 或 Nextflow：可自定义的流程化执行平台
 
-    Galaxy：图形化界面操作，无需编程
+Galaxy：图形化界面操作，无需编程
 
 **示例流程总结图（概念）**
 
