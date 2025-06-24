@@ -14,9 +14,9 @@
 
 # 二、RNA-Seq 数据分析流程
 
-### 第1步：质量控制（QC）
+### 第1步：质量质控（Quality Control, QC）
 
-    目的：检查原始测序数据质量
+- 1. 检查原始测序数据质量
 
     工具：
 
@@ -24,7 +24,7 @@
 
         MultiQC：整合多个样本的FastQC报告
 
-### 第2步：去除低质量读段与接头污染
+- 2. 去除低质量读段与接头污染
 
     工具：
 
@@ -34,7 +34,7 @@
 
 输出：清洗后的 clean reads
 
-### 第3步：比对到参考基因组
+### 第2步：序列比对（Read Mapping/Alignment）
 
     工具：
 
@@ -46,7 +46,7 @@
 
 输出：比对后的 SAM / BAM 文件
 
-### 第4步：转录本组装与表达定量
+### 第3步：表达定量（Expression Quantification）
 
     方法 1：基于比对
 
@@ -62,7 +62,7 @@
 
             Salmon 或 Kallisto：速度快、内存低，直接输出TPM/Counts
 
-### 第5步：差异表达分析
+### 第4步：差异表达分析（Differential Expression Analysis, DEA）
 
     输入：read count 矩阵
 
@@ -76,7 +76,7 @@
 
 输出：差异表达基因列表（log2FoldChange，p-value，adjusted p-value）
 
-### 第6步：功能注释与富集分析
+### 第5步：功能注释与功能富集分析（Functional Enrichment Analysis）
 
     GO / KEGG 富集分析
 
@@ -94,7 +94,7 @@
 
         biomaRt（用于基因ID转换）
 
-### 第7步：可视化分析
+### 第6步：可视化分析
 
     常用图形：
 
@@ -139,4 +139,9 @@ FASTQ → QC (FastQC) → Trimming (fastp) → Mapping (HISAT2) →
 Count (featureCounts) → DEG (DESeq2) → GO/KEGG (clusterProfiler) →
 Visualization (ggplot2 / pheatmap / PCA)
 ```
+
+### 验证与后续实验
+
+    RT-qPCR验证： 选择部分关键的差异表达基因，通过**定量逆转录PCR（RT-qPCR）**进行独立的实验验证，以确认测序结果的准确性。
+    其他实验验证： 根据分析结果，可以设计更深入的分子生物学实验，如Western Blot验证蛋白表达、免疫组化（IHC）或免疫荧光（IF）验证蛋白定位、基因功能研究（基因敲除/过表达）等，以进一步阐明基因的功能和机制。
 
